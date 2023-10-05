@@ -12,7 +12,7 @@ const TablaRow = ({ dato }) => {
       <td>{dato.name.last}</td>
       <td>{dato.email}</td>
       <td>{dato.dob.age}</td>
-      <td>
+      {/* <td>
         <button>
           <FaEye />
         </button>
@@ -21,7 +21,7 @@ const TablaRow = ({ dato }) => {
         <button>
           <FaEdit />
         </button>
-      </td>
+      </td> */}
     </tr>
   );
 };
