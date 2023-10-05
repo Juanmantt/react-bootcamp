@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   return (
     // Utilizamos el proveedor del contexto para pasar el estado del modo oscuro
     <ModoOscuroContext.Provider value={modoOscuro}>
-      <div className="container">
+      <div className={modoOscuro ? 'container modo-oscuro' : 'container'}>
         <header className="header">
           <h1>App bootcamp</h1>
           <label>
