@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const Buscador = ({ onBuscar }) => {
   const [termino, setTermino] = useState('');
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setTermino(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     onBuscar(termino);
   };
@@ -55,6 +55,6 @@ const Buscador = ({ onBuscar }) => {
 };
 
 Buscador.propTypes = {
-  onBuscar: PropTypes.func.isRequired,
+    onBuscar: PropTypes.func.isRequired,
 };
 export default Buscador;

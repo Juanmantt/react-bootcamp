@@ -4,3 +4,46 @@
   padding: 2rem;
   text-align: justify;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+}
+
+.header {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 16px;
+  
+}
+
+
+/* Hacer tr que cambie de color entre par e impar y tenGa en cuenta cuando esta en modooscuro  */
+tr:nth-child(even) {
+  background-color: #dddddd;
+  color: #000000;
+}
+tr:nth-child(odd) {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
+content.modo-oscuro {
+  background-color: #000000;
+  color: #ffffff;
+}
+.content tr:nth-child(even).modo-oscuro {
+  background-color: #ffffff;
+  color: #000000;
+}
+.content tr:nth-child(odd).modo-oscuro {
+  background-color: #dddddd;
+  color: #000000;
+}
+

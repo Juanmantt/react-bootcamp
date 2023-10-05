@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import { FaEye, FaEdit } from 'react-icons/fa';
+import { ModoOscuroContext } from '../layaut/Layaut';
+import { useContext } from 'react';
 
-const TablaRow = ({ dato, index }) => {
-  const styles = {
-    backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#ffffff',
-    borderBottom: '1px solid #ddd',
-    padding: '8px',
-  };
+const TablaRow = ({ dato }) => {
+    const modoOscuro = useContext(ModoOscuroContext);
+    //
 
   return (
-    <tr key={dato.login.uuid} style={styles}>
+    //si modo oscuro es true, agrega la clase modo-oscuro
+    <tr key={dato.login.uuid} className={modoOscuro ? 'modo-oscuro' : ''}>
       <td>{dato.name.first}</td>
       <td>{dato.name.last}</td>
       <td>{dato.email}</td>
+      <td>{dato.dob.age}</td>
       <td>
         <button>
           <FaEye />

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TablaRow from './TablaRow';
 
-const TablaDatos = ({ terminoBusqueda }) => {
+const TablaDatos=({ terminoBusqueda })=> {
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
@@ -10,9 +10,7 @@ const TablaDatos = ({ terminoBusqueda }) => {
       let pagina = 1;
       let resultados = [];
       while (resultados.length < 100) {
-        let respuesta = await fetch(
-          `https://randomuser.me/api/?page=${pagina}&results=20&seed=abc`
-        );
+        let respuesta = await fetch(`https://randomuser.me/api/?page=${pagina}&results=20&seed=abc`);
         let datosPagina = await respuesta.json();
         resultados = [...resultados, ...datosPagina.results];
         pagina++;
@@ -24,15 +22,8 @@ const TablaDatos = ({ terminoBusqueda }) => {
   }, []);
 
   const datosFiltrados = terminoBusqueda
-    ? datos.filter(
-        (dato) =>
-          dato.name.first
-            .toLowerCase()
-            .includes(terminoBusqueda.toLowerCase()) ||
-          dato.name.last
-            .toLowerCase()
-            .includes(terminoBusqueda.toLowerCase()) ||
-          dato.email.toLowerCase().includes(terminoBusqueda.toLowerCase())
+    ? datos.filter(dato =>
+        dato.name.first.toLowerCase().includes(terminoBusqueda.toLowerCase()) || dato.name.last.toLowerCase().includes(terminoBusqueda.toLowerCase()) || dato.email.toLowerCase().includes(terminoBusqueda.toLowerCase())
       )
     : datos;
 
@@ -40,9 +31,13 @@ const TablaDatos = ({ terminoBusqueda }) => {
     <table>
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Correo electrónico</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo electrónico</th>
+            <th>Edad</th>
+            <th>Ver</th>
+            <th>Editar</th>
+
         </tr>
       </thead>
       <tbody>
@@ -52,7 +47,7 @@ const TablaDatos = ({ terminoBusqueda }) => {
       </tbody>
     </table>
   );
-};
+}
 
 TablaDatos.propTypes = {
   terminoBusqueda: PropTypes.string.isRequired,
